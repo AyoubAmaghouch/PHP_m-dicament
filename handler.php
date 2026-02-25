@@ -59,8 +59,6 @@ if (!empty($errors)) {
 $ALLinfo = [$Pinfo, $Cinfo];
 ADDinfo($ALLinfo);
 
-/* Success message */
-$_SESSION['success'] = "Patient added successfully!";
 
 /* Redirect */
 header("Location: index.php");
