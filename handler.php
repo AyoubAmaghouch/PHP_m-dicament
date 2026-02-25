@@ -51,7 +51,7 @@ $errors = validateConsultation(
 
 if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
-    header("Location: add.php"); // redirect clean
+    header("Location: add.php");
     exit;
 }
 
