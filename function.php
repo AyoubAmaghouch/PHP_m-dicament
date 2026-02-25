@@ -52,6 +52,9 @@ function validateConsultation(
     if (empty(trim($Creason)))  $errors[] = "Consultation reason is required.";
 
     // Numeric validations
+     if (strtotime($Cdate) > strtotime(date("Y-m-d"))) {
+    $errors[] = "Consultation date must be today or earlier.";
+    }
     if (!is_numeric($temp) || $temp < 35 || $temp > 42)
         $errors[] = "Temperature must be between 35°C and 42°C.";
 
@@ -68,9 +71,7 @@ function validateConsultation(
         $errors[] = "Diastolic pressure must be between 40 and 130.";
 
     // Date validation
-    if ($Cdate > date("Y-m-d"))
-        $errors[] = "Consultation date must be today or earlier.";
-
+   
     return $errors;
 }
 
@@ -126,4 +127,22 @@ function detectFievre($temperature)
 function detectHypertension($systolic, $diastolic)
 {
     return ($systolic >= 140 || $diastolic >= 90);
+}
+
+function deletecard($id){
+    $file = "data/consultations.json";
+
+    if(!file_exists($file)) return;
+
+    $json = file_get_contents($file);
+    $data = json_decode($json, true) ?? [];
+
+    foreach($data as $key => $record){
+        if(isset($record[0][0]) && $record[0][0] == $id){
+            unset($data[$key]);
+            break;
+        }
+    }
+
+    file_put_contents($file, json_encode(array_values($data), JSON_PRETTY_PRINT));
 }

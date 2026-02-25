@@ -127,7 +127,7 @@ input[type="checkbox"] {
         <label>Body Temperature (°C):</label>
         <input type="number" name="temp" step="0.1">
 
-        <label>Blood Pressure:</label>
+        <label>Blood Pressure:</label><br>
         <input type="number" name="pressure[]" placeholder="Systolic" style="width:45%;"> 
         /
         <input type="number" name="pressure[]" placeholder="Diastolic" style="width:45%;">

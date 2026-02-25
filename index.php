@@ -1,7 +1,17 @@
 <?php
+require "function.php";
 $file = "data/consultations.json";
 $json = @file_get_contents($file);
 $data = json_decode($json, true) ?: [];
+
+
+if(isset($_POST['delete'])) {
+    $idTD = $_POST['id'];
+    deletecard($idTD);
+    header("Location: index.php");
+    exit;
+}
+
 
 /* ===== SORT SIMPLE ===== */
 if(isset($_GET['sort'])){
@@ -66,7 +76,24 @@ button { padding:8px 15px; margin:5px; border:none; border-radius:8px; cursor:po
     $id = $patient[0];
 ?>
 
-<div class="patient-card">
+<div class="patient-card" style="position: relative;">
+
+<form action="index.php" method="POST">
+    <input type="hidden" name="id" value="<?= $id ?>">
+    <input type="submit" value="x" style="  position:absolute;
+                                            top:5px;
+                                            right:5px;
+                                            background:red;
+                                            color:white;
+                                            border:none;
+                                            border-radius:4px;
+                                            width:25px;
+                                            height:25px;
+                                            font-size:14px;
+                                            cursor:pointer;"    
+                                            name="delete"
+                                            >
+</form>
 
 <h3>Patient Card</h3>
 
