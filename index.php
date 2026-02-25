@@ -13,7 +13,7 @@ if(isset($_POST['delete'])) {
 }
 
 
-/* ===== SORT SIMPLE ===== */
+
 if(isset($_GET['sort'])){
 
     // Sort by Name A
