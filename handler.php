@@ -25,7 +25,7 @@ $Symptoms = $_POST['symptoms'] ?? [];
 
 /* Calculations */
 $age = calculAge($Bdate);
-$BMI = calculIMC($weight, $height); // function already handles cm if fixed
+$BMI = calculIMC($weight, $height); 
 
 /* Generate Unique ID */
 $id = uniqid("PAT_");
