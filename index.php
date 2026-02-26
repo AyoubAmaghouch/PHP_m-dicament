@@ -16,14 +16,14 @@ if(isset($_POST['delete'])) {
 
 if(isset($_GET['sort'])){
 
-    // Sort by Name A
-    if($_GET['sort'] == "name"){
-        usort($data, function($a,$b){
-            return strcmp($a[0][1], $b[0][1]);
+    // Sort by Name (hadi bache nfiltriw be ism)
+    if($_GET['sort'] == "name"){ //ma3lomat deal merid we dikxi de istichara rkz eliha
+        usort($data, function($a,$b){ //MOQARANA
+            return strcmp($a[0][1], $b[0][1]); //STRCMP ==STRING COMPARISON 
         });
     }
 
-    // Sort by Date 
+    // Sort by Date (hadi be date )
     if($_GET['sort'] == "date"){
         usort($data, function($a,$b){
             return strtotime($b[1][0]) - strtotime($a[1][0]);
