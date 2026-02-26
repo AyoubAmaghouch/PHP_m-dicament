@@ -83,7 +83,7 @@ function validateConsultation(
 
 function calculAge($date_naissance)
 {
-    $today = new DateTime();
+    $today = new DateTime(); // rej3anaa object cheek
     $birth = new DateTime($date_naissance);
 
     return $today->diff($birth)->y;
