@@ -26,7 +26,7 @@ if(isset($_GET['sort'])){
     // Sort by Date (hadi be date )
     if($_GET['sort'] == "date"){
         usort($data, function($a,$b){
-            return strtotime($b[1][0]) - strtotime($a[1][0]);
+            return strtotime($b[1][0]) - strtotime($a[1][0]); // dik strtotime li edtlk hadik  katrja3lk string ne raqm rkz eliha
         });
     }
 }
