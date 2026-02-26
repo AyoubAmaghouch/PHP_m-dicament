@@ -2,7 +2,7 @@
 require "function.php";
 $file = "data/consultations.json";
 $json = @file_get_contents($file);
-$data = json_decode($json, true) ?: [];
+$data = json_decode($json, true) ?: []; // ISMA Ternary shortcut
 
 
 if(isset($_POST['delete'])) {
